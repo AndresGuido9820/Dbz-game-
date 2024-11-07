@@ -128,8 +128,10 @@ class QuizManager:
             self.current_level += 1
             self.current_question_index = 0
             self.correct_answers = 0
+            return True
         else:
             print("¡Has completado todos los niveles!")
+            return False
    
 
     def level_completed(self):
@@ -142,4 +144,3 @@ class QuizManager:
         self.current_level = 1
         self.current_question_index = 0
         self.correct_answers = 0
-

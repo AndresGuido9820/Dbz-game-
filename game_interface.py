@@ -137,12 +137,12 @@ def game_interface(listaCharacters, character_index, listaMaps, indexMap ):
 
         # Si el juego terminó, mostrar el botón "Finalizar"
         if quiz_manager.game_over():
-            game_over_text = get_font(60).render("¡Juego Finalizado! Inicie de nuevo.", True, "White")
-            game_over_rect = game_over_text.get_rect(center=(640, 300))
+            game_over_text = get_font(12).render("¡Has perdido! Inicie de nuevo.", True, "Black")
+            game_over_rect = game_over_text.get_rect(center=(640, 350))
             SCREEN.blit(game_over_text, game_over_rect)
 
             # Crear el botón de "Finalizar"
-            finish_button = Button(image=None, pos=(640, 400), text_input="Finalizar", font=get_font(30), base_color="White", hovering_color="Red")
+            finish_button = Button(image=None, pos=(640, 400), text_input="Finalizar", font=get_font(30), base_color="black", hovering_color="Red")
             finish_button.update(SCREEN)
 
             # Si se hace clic en el botón de finalizar, se cierra el juego
@@ -154,11 +154,7 @@ def game_interface(listaCharacters, character_index, listaMaps, indexMap ):
                     if finish_button.checkForInput(pygame.mouse.get_pos()):
                         pygame.quit()
                         sys.exit()
-        if quiz_manager.level_completed:
-            level_complete_text = get_font(60).render(f"��Nivel{quiz_manager.get_level()} Completado! Continuar con el siguiente nivel.", True, "White")
-            level_complete_rect = level_complete_text.get_rect(center=(640, 300))
-            SCREEN.blit(level_complete_text, level_complete_rect)
-
+     
         # Eventos
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -184,10 +180,10 @@ def game_interface(listaCharacters, character_index, listaMaps, indexMap ):
                             villain_dialogue = random.choice(villain_incorrect_dialogues)
 
                         # Avanzar al siguiente nivel si se alcanza el número de respuestas correctas
-                        if correct_answers >= required_correct_answers:
+                        if quiz_manager.advance_level==False:
                             character_dialogue = "¡Has alcanzado el máximo nivel! ¡Felicidades!"
                             villain_dialogue = "¡Maldito, me has derrotado!"
-                            quiz_manager.next_level()
+                            
 
                         break
 
