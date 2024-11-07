@@ -4,14 +4,13 @@
 
 ## Características del Juego
 - Preguntas de programación sobre diferentes lenguajes y conceptos.
-- Personajes de Dragon Ball Z como Goku, Vegeta y Freezer te desafiarán con preguntas.
+- Personajes de Dragon Ball Z como Goku, Vegeta pelearán contra las preguntas del malvado Freezer .
 - Gráficos inspirados en el mundo de DBZ.
 - Retroalimentación interactiva y niveles con dificultad creciente.
 
 ## Requisitos
 - Python 3.x
 - Pygame para gráficos e interfaz de usuario
-- Dependencias de proyectos (se instalarán automáticamente)
 
 ## Instalación
 
